@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  trome:
+    build:
+      context: .
+      args:
+        TZ: 'America/New_York'
+        ORIGIN: ${ORIGIN}
+    container_name: trome
+    ports:
+      - '3865:3000'
+    restart: unless-stopped
