@@ -3,9 +3,9 @@ FROM oven/bun:1
 
 #Define environment variables
 ARG TZ
-ARG ORIGIN
 ENV TZ $TZ
-ENV ORIGIN $ORIGIN
+ENV PROTOCOL_HEADER x-forwarded-proto 
+ENV HOST_HEADER x-forwarded-host
 
 # Install node dependencies
 WORKDIR /app
