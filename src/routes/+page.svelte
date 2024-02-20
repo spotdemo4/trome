@@ -6,15 +6,15 @@
 
 	const domains = [
 		{
-			href: 'https://trev.xyz',
+			href: 'https://trev.xyz/',
 			tld: 'xyz'
 		},
 		{
-			href: 'https://trev.kiwi',
+			href: 'https://trev.kiwi/',
 			tld: 'kiwi'
 		},
 		{
-			href: 'https://trev.zip',
+			href: 'https://trev.zip/',
 			tld: 'zip'
 		},
 		{
