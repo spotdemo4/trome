@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import Dropdown from '$lib/components/Dropdown.svelte';
 
 	const domains = [
 		{
@@ -23,6 +24,7 @@
 		}
 	];
 	let activeDomain = domains.find((domain) => domain.href === $page.url.href) ?? domains[0];
+	const currentDomain = domains.find((domain) => domain.href === $page.url.href) ?? domains[0];
 
 	function changeDomain() {
 		const index = domains.indexOf(activeDomain);
@@ -67,4 +69,13 @@
 			{/key}
 		</div>
 	</a>
+	{#if currentDomain.tld == 'xyz'}
+		<Dropdown title="xyz" desc="misc" statusurl="https://status.trev.xyz/status/xyz" />
+	{:else if currentDomain.tld == 'kiwi'}
+		<Dropdown title="kiwi" desc="public" statusurl="https://status.trev.kiwi/status/kiwi" />
+	{:else if currentDomain.tld == 'zip'}
+		<Dropdown title="zip" desc="storage" statusurl="https://status.trev.zip/status/zip" />
+	{:else if currentDomain.tld == 'com'}
+		<Dropdown title="com" desc="hidden" statusurl="https://status.xn--rev-g0a.com/status/com" />
+	{/if}
 </div>
